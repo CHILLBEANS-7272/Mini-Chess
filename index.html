@@ -497,6 +497,67 @@ body.board-fullscreen .square {
     touch-action: manipulation;
 }
 
+/* Centered game-over modal */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: none;
+    place-items: center;
+    padding: 20px;
+    background: rgba(5, 6, 14, 0.78);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}
+
+.modal-backdrop.show {
+    display: grid;
+}
+
+.modal {
+    width: min(100%, 390px);
+    padding: 30px 26px;
+    text-align: center;
+    background: #191b29;
+    border: 1px solid #514078;
+    border-radius: 22px;
+    box-shadow: 0 24px 80px #0009;
+    animation: modal-pop .22s ease-out;
+}
+
+.modal-icon {
+    display: grid;
+    place-items: center;
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 15px;
+    border-radius: 20px;
+    background: #29223a;
+    font-size: 38px;
+}
+
+.modal h2 {
+    margin: 0 0 9px;
+    font: 800 26px 'Outfit', sans-serif;
+    color: #fff;
+}
+
+.modal p {
+    margin: 0 0 23px;
+    color: #b8b8ca;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.modal button {
+    min-width: 150px;
+}
+
+@keyframes modal-pop {
+    from { opacity: 0; transform: translateY(10px) scale(.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 @media (max-width: 760px) {
     body { padding: 17px 11px; }
     header { margin-bottom: 18px; }
